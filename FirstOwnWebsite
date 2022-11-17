@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML Tutorial Beginners">
+    <meta name="author" content="Sanat Kulkarni">
+    <meta name="description" content="My first website this is">
+    
+    <title>Sanat Website</title>
+</head>
+<body style="background-color: black;">
+    <h1 style="color:white;">Blockchain</h1>
+    <hr>
+    <p style="color: white;">This is my <i>first</i> <b>website</b> about blockchain. Blockchain is an emerging technology with a wide range of uses.</p>
+    <br>
+    <img src="blockchain img.webp">
+    <br>
+    <br>
+    <hr>
+
+    <h3 style="color: white">Please input some information to support my website</h3>
+    <form>
+    <label for="fname" style="color:white">First Name: </label>
+        <input type="text" id="fname" name="fname" placeholder="John">
+        <br> <br>
+    <label for="lname" style="color:white">Last Name: </label>
+        <input type="text" id="lname" name="lname" placeholder="Hopkins">
+        <br> <br>
+    
+
+    <select name="payment" id="payment">
+        <label for="payment" style="color: white">Payment: </label>
+        <option value="Visa">Visa</option>
+        <option value="Mastercard">Mastercard</option>
+        <option value="Giftcard">Giftcard</option>
+    </select>
+        <br>
+        <br>
+        <input type="reset" style="background-color: green; color: white">
+    <br> <br>
+    <input type="submit" style="background-color: green; color: white">
+    <br> <br>
+        
+</form>
+<table style="background-color: white; color:white" width="750" height="250">
+    <tr bgcolor="green">
+        <th>People</th>
+        <th>Amount</th>
+        <th>Used</th>
+    </tr>
+    <tr bgcolor="black">
+        <td>Sanat</td>
+        <td>69</td>
+        <td>56</td>
+    </tr>
+    <tr bgcolor="black">
+        <td>Raj</td>
+        <td>100</td>
+        <td>70</td>
+    </tr>
+</table>
+</body>
+</html>
