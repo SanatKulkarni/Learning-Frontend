@@ -66,3 +66,58 @@ else if(count!=2){
 }
 
 }
+
+
+
+
+
+
+
+CSS Content: 
+@keyframes fade-in {
+    0%{ opacity: 0;}
+    100%{ opacity: 1;}
+}
+
+
+
+body{
+    background-color: black;
+}
+#title{
+    color: white;
+    text-align: center;
+    font-family: "Press Start 2P","consolas",sans-serif;
+}
+#num{
+    height: 50px;
+    width: 500px;
+    text-align: center;
+    font-size: larger;
+    margin: auto;
+    display: block;
+    border-radius: 25px;
+}
+#res{
+    color: white;
+    text-align: center;
+    animation: fade-in 2s;
+    font-family: "Press Start 2P","consolas",sans-serif;
+}
+#prime{
+    color: white;
+    text-align: center;
+    animation: fade-in 2s;
+    font-family: "Press Start 2P","consolas",sans-serif;
+}
+
+#submit{
+    height: 50px;
+    width: 500px;
+    margin: auto;
+    display: block;
+    border-radius: 25px;
+    animation: fade-in;
+    font-family: "Press Start 2P","consolas",sans-serif;
+
+}
