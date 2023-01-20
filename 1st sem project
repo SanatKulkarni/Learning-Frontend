@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <windows.h>
+
+
+
+
+struct emp{
+char name[50];
+float salary;
+int age;
+int id;
+};
+struct emp e;
+
+int size=sizeof(e);
+
+FILE *fp,*ft;
+void starters(){
+    printf("1. Hot and Sour Soup -- 150Rs.\n");
+    printf("2. Tomato Soup -- 150Rs.\n");
+    printf("3. Chicken Soup -- 200Rs.\n");
+    printf("4. Manchurian Dry -- 220Rs.\n");
+    printf("5. Paneer 65 -- 250Rs.\n");
+    printf("6. Chicken Kebab -- 250Rs.\n");
+    printf("7. Chicken Spring Rolls -- 280Rs.\n");
+}
+void menu(){
+system("cls");
+printf("1. Starters\n");
+int n;
+printf("Enter option: ");
+scanf("%d",&n);
+if(n==1){
+    system("cls");
+    starters();
+}
+
+
+}
+
+void main(){
+    printf("Welcome to the Restaurant Menu and Billing Management System\n");
+    printf("\n");
+    printf("Class: CSE-C\n");
+    printf("\n");
+    printf("Made by:\n");
+    printf("Sanat Kulkarni -- AP22110010183\n");
+    printf("Kunal Sharma -- AP22110010172\n");
+    printf("Hemant Raghuwanshi -- AP221100177\n");
+    printf("Samudrala Pranavi Navya -- AP22110010144\n");
+    printf("\n\n");
+    system("pause");
+    system("cls");
+
+
+
+
+
+
+    printf("1. Menu\n");
+    int k;
+    printf("What would you like? ");
+    scanf("%d",&k);
+    if(k==1){
+    menu();}
+    return (0);
+}
