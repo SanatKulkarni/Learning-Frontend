@@ -3,9 +3,6 @@
 #include <string.h>
 #include <windows.h>
 
-
-
-
 struct emp{
 char name[50];
 float salary;
@@ -18,23 +15,48 @@ int size=sizeof(e);
 
 FILE *fp,*ft;
 void starters(){
-    printf("1. Hot and Sour Soup -- 150Rs.\n");
-    printf("2. Tomato Soup -- 150Rs.\n");
-    printf("3. Chicken Soup -- 200Rs.\n");
-    printf("4. Manchurian Dry -- 220Rs.\n");
-    printf("5. Paneer 65 -- 250Rs.\n");
-    printf("6. Chicken Kebab -- 250Rs.\n");
+    printf("1. Hot and Sour Soup    -- 150Rs.\n");
+    printf("2. Tomato Soup          -- 150Rs.\n");
+    printf("3. Chicken Soup         -- 200Rs.\n");
+    printf("4. Manchurian Dry       -- 220Rs.\n");
+    printf("5. Paneer 65            -- 250Rs.\n");
+    printf("6. Chicken Kebab        -- 250Rs.\n");
     printf("7. Chicken Spring Rolls -- 280Rs.\n");
+}
+void maincourse(){
+    printf("1. Chicken Biryani       -- 300Rs.\n");
+    printf("2. Chicken Schezwan Rice -- 160Rs.\n");
+    printf("3. Butter Chicken        -- 250Rs.\n");
+    printf("4. Veg Biryani           -- 220Rs.\n");
+    printf("5. Paneer Schezwan Rice  -- 150Rs.\n");
+    printf("6. Paneer Tikka Masala   -- 180Rs.\n");
+}
+void dessert(){
+    printf("1. Ice-cream          -- 80Rs.\n");
+    printf("2. Gulab Jamun        -- 120Rs.\n");
+    printf("3. Chocolate Brownie  -- 100Rs.\n");
+    printf("4. Rasgulla           -- 120Rs.\n");
+    printf("5. Karanji            -- 150Rs.\n");
 }
 void menu(){
 system("cls");
-printf("1. Starters\n");
-int n;
+printf("1. Starters\n\n");
+printf("2. Main Course\n\n");
+printf("3. Dessert\n\n");
+int n; char ch;
 printf("Enter option: ");
 scanf("%d",&n);
 if(n==1){
     system("cls");
     starters();
+}
+if(n==2){
+    system("cls");
+    maincourse();
+}
+if(n==3){
+    system("cls");
+    dessert();
 }
 
 
@@ -60,6 +82,7 @@ void main(){
 
 
     printf("1. Menu\n");
+
     int k;
     printf("What would you like? ");
     scanf("%d",&k);
