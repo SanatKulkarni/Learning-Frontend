@@ -21,7 +21,7 @@ int size2=sizeof(o1);
 FILE *fp,*ft;
 
 int starters(){
-
+    system("cls");
     int i;
 
     printf("1. Hot and Sour Soup    -- 150Rs.\n");
@@ -31,7 +31,7 @@ int starters(){
     printf("5. Paneer 65            -- 250Rs.\n");
     printf("6. Chicken Kebab        -- 250Rs.\n");
     printf("7. Chicken Spring Rolls -- 280Rs.\n");
-    printf("Enter Yout Choice : ");
+    printf("Enter Your Choice : ");
     scanf("%d",&i);
     return i;
 }
@@ -118,8 +118,12 @@ printf("\n\n\n\n\n\n\n\n\n");
  printf("\t6. Exit\n\n\n");
  printf("\tEnter your choice: ");
 
-    int k;
 
+
+
+
+
+    int k;
     scanf("%d",&k);
 
     switch(k)
@@ -129,14 +133,48 @@ printf("\n\n\n\n\n\n\n\n\n");
      while(c=='Y')
     {
     int j =  menu();
-    switch(j)
+    if(j==1)
     {
-     case 1: fseek(fp,0,SEEK_END);
+    fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Hot and Sour Soup");
              o1.price=150;
        fwrite(&o1,size2,1,fp);
-  break;
-     
+    }
+     if(j==2){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Tomato Soup");
+             o1.price=150;
+       fwrite(&o1,size2,1,fp);
+     }
+     if(j==3){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Chicken Soup");
+             o1.price=200;
+       fwrite(&o1,size2,1,fp);
+    }
+     if(j==4){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Manchurian dry");
+             o1.price=220;
+       fwrite(&o1,size2,1,fp);
+     }
+     if(j==5){
+            fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Paneer 65");
+             o1.price=250;
+       fwrite(&o1,size2,1,fp);
+     }
+
+     if(j==6){
+            fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Chicken Kebab");
+             o1.price=250;
+       fwrite(&o1,size2,1,fp);
+     }
+     if(j==7){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Chicken Spring Rolls");
+             o1.price=280;
+       fwrite(&o1,size2,1,fp);
+     }
+     break;
+
   case 4:
 
     system("cls");
@@ -149,6 +187,9 @@ printf("\n\n\n\n\n\n\n\n\n");
     getch();
     break;
 
+  case 6:
+    exit(0);
+    break;
     }
 
 
@@ -156,4 +197,4 @@ printf("\n\n\n\n\n\n\n\n\n");
 }
 
 
- }
+} }
