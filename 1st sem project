@@ -35,47 +35,30 @@ int starters(){
     scanf("%d",&i);
     return i;
 }
-void maincourse(){
+int maincourse(){
+    system("cls");
+    int i;
     printf("1. Chicken Biryani       -- 300Rs.\n");
     printf("2. Chicken Schezwan Rice -- 160Rs.\n");
     printf("3. Butter Chicken        -- 250Rs.\n");
     printf("4. Veg Biryani           -- 220Rs.\n");
     printf("5. Paneer Schezwan Rice  -- 150Rs.\n");
     printf("6. Paneer Tikka Masala   -- 180Rs.\n");
+    scanf("%d",&i);
+    return i;
 }
-void dessert(){
+int dessert(){
+    system("cls");
+    int i;
     printf("1. Ice-cream          -- 80Rs.\n");
     printf("2. Gulab Jamun        -- 120Rs.\n");
     printf("3. Chocolate Brownie  -- 100Rs.\n");
     printf("4. Rasgulla           -- 120Rs.\n");
     printf("5. Karanji            -- 150Rs.\n");
+    scanf("%d",&i);
+    return i;
 }
-int menu(){
-system("cls");
-int n;
-printf("\n\n\n\n\n");
-printf("\t\t\t\tWhat would you like?\n\n ");
-printf("\t\t\t1. Starters\n\n");
-printf("\t\t\t2. Main Course\n\n");
-printf("\t\t\t3. Dessert\n\n\n");
- char ch;
-printf("\t\t\tEnter option: ");
-scanf("%d",&n);
-if(n==1){
-    system("cls");
-   n = starters();
-}
-if(n==2){
-    system("cls");
-    maincourse();
-}
-if(n==3){
-    system("cls");
-    dessert();
-}
- return n;
 
-}
 
 void main(){
 system("cls");
@@ -90,16 +73,17 @@ char c;
             exit(1);
         }
     }
-    printf("Welcome to the Restaurant Menu and Billing Management System\n");
+    printf("\tWelcome to the Restaurant Menu and Billing Management System\n");
     printf("\n");
-    printf("Class: CSE-C\n");
+    printf("\tClass: CSE-C\n");
     printf("\n");
-    printf("Made by:\n");
-    printf("Sanat Kulkarni          -- AP22110010183\n");
-    printf("Kunal Sharma            -- AP22110010172\n");
-    printf("Hemant Raghuwanshi      -- AP22110010177\n");
-    printf("Samudrala Pranavi Navya -- AP22110010144\n");
+    printf("\tMade by:\n");
+    printf("\tSanat Kulkarni          -- AP22110010183\n");
+    printf("\tKunal Sharma            -- AP22110010172\n");
+    printf("\tHemant Raghuwanshi      -- AP22110010177\n");
+    printf("\tSamudrala Pranavi Navya -- AP22110010144\n");
     printf("\n\n");
+    printf("\t");
     system("pause");
     system("cls");
 
@@ -117,7 +101,7 @@ printf("\n\n\n\n\n\n\n\n\n");
  printf("\t5. bill\n\n");
  printf("\t6. Exit\n\n\n");
  printf("\tEnter your choice: ");
-
+int i,j;
 
 
 
@@ -129,10 +113,18 @@ printf("\n\n\n\n\n\n\n\n\n");
     switch(k)
    {
     case 1:
+        system("cls");
+        printf("\t1. Starters\n\n");
+        printf("\t2. Main Course\n\n");
+        printf("\t3. Desserts\n\n");
+        printf("\tWhat would you like to have?:\t");
+        scanf("%d",&i);
       c='Y';
      while(c=='Y')
     {
-    int j =  menu();
+
+    if(i==1){
+            j=starters();
     if(j==1)
     {
     fseek(fp,0,SEEK_END);
@@ -173,7 +165,66 @@ printf("\n\n\n\n\n\n\n\n\n");
              o1.price=280;
        fwrite(&o1,size2,1,fp);
      }
+    }
+
+    if(i==2){
+        j=maincourse();
+    if(j==1){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Chicken Biryani");
+             o1.price=300;
+       fwrite(&o1,size2,1,fp);}
+    if(j==2){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Chicken Schezwan Rice");
+             o1.price=160;
+       fwrite(&o1,size2,1,fp);}
+    if(j==3){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Butter Chicken");
+             o1.price=250;
+       fwrite(&o1,size2,1,fp);}
+    if(j==4){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Veg Biryani");
+             o1.price=220;
+       fwrite(&o1,size2,1,fp);}
+    if(j==5){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Paneer Schezwan Rice");
+             o1.price=150;
+       fwrite(&o1,size2,1,fp);}
+    if(j==6){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Paneer Tikka Masala");
+             o1.price=180;
+       fwrite(&o1,size2,1,fp);}
+    }
+
+    if(i==3){
+        j=dessert();
+    if(j==1){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Ice-Cream");
+             o1.price=80;
+       fwrite(&o1,size2,1,fp);}
+    if(j==2){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Gulab Jamun");
+             o1.price=120;
+       fwrite(&o1,size2,1,fp);}
+    if(j==3){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Chocolate Brownie");
+             o1.price=100;
+       fwrite(&o1,size2,1,fp);}
+    if(j==4){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Rasgulla");
+             o1.price=120;
+       fwrite(&o1,size2,1,fp);}
+    if(j==5){ fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Karanji");
+             o1.price=150;
+       fwrite(&o1,size2,1,fp);}
+    }
      break;
+
+
+
+
+
+
 
   case 4:
 
@@ -198,3 +249,5 @@ printf("\n\n\n\n\n\n\n\n\n");
 
 
 } }
+
+
