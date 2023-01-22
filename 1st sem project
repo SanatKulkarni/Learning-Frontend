@@ -2,19 +2,28 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
+#include <conio.h>
 
-struct emp{
+struct billing{
 char name[50];
-float salary;
-int age;
-int id;
-};
-struct emp e;
+float bill;
+int rating;
 
-int size=sizeof(e);
+}b1;
+struct order{
+char ord[50];
+float price;
+int quantity;
+}o1;
 
+int size1=sizeof(b1);
+int size2=sizeof(o1);
 FILE *fp,*ft;
-void starters(){
+
+int starters(){
+
+    int i;
+
     printf("1. Hot and Sour Soup    -- 150Rs.\n");
     printf("2. Tomato Soup          -- 150Rs.\n");
     printf("3. Chicken Soup         -- 200Rs.\n");
@@ -22,6 +31,9 @@ void starters(){
     printf("5. Paneer 65            -- 250Rs.\n");
     printf("6. Chicken Kebab        -- 250Rs.\n");
     printf("7. Chicken Spring Rolls -- 280Rs.\n");
+    printf("Enter Yout Choice : ");
+    scanf("%d",&i);
+    return i;
 }
 void maincourse(){
     printf("1. Chicken Biryani       -- 300Rs.\n");
@@ -38,17 +50,20 @@ void dessert(){
     printf("4. Rasgulla           -- 120Rs.\n");
     printf("5. Karanji            -- 150Rs.\n");
 }
-void menu(){
+int menu(){
 system("cls");
-printf("1. Starters\n\n");
-printf("2. Main Course\n\n");
-printf("3. Dessert\n\n");
-int n; char ch;
-printf("Enter option: ");
+int n;
+printf("\n\n\n\n\n");
+printf("\t\t\t\tWhat would you like?\n\n ");
+printf("\t\t\t1. Starters\n\n");
+printf("\t\t\t2. Main Course\n\n");
+printf("\t\t\t3. Dessert\n\n\n");
+ char ch;
+printf("\t\t\tEnter option: ");
 scanf("%d",&n);
 if(n==1){
     system("cls");
-    starters();
+   n = starters();
 }
 if(n==2){
     system("cls");
@@ -58,35 +73,87 @@ if(n==3){
     system("cls");
     dessert();
 }
-
+ return n;
 
 }
 
 void main(){
+system("cls");
+char c;
+    fp=fopen("ORDER.DAT","rb+");
+    if(fp == NULL)
+    {
+        fp = fopen("ORDER.DAT","wb+");
+        if(fp == NULL)
+        {
+            printf("Connot open file");
+            exit(1);
+        }
+    }
     printf("Welcome to the Restaurant Menu and Billing Management System\n");
     printf("\n");
     printf("Class: CSE-C\n");
     printf("\n");
     printf("Made by:\n");
-    printf("Sanat Kulkarni -- AP22110010183\n");
-    printf("Kunal Sharma -- AP22110010172\n");
-    printf("Hemant Raghuwanshi -- AP221100177\n");
+    printf("Sanat Kulkarni          -- AP22110010183\n");
+    printf("Kunal Sharma            -- AP22110010172\n");
+    printf("Hemant Raghuwanshi      -- AP22110010177\n");
     printf("Samudrala Pranavi Navya -- AP22110010144\n");
     printf("\n\n");
     system("pause");
     system("cls");
 
+while(1) {
+system("cls");
+
+printf("\n\n\n\n\n\n\n\n\n");
 
 
 
-
-
-    printf("1. Menu\n");
+ printf("\t1. Order Something\n\n");
+ printf("\t2. Change the order\n\n");
+ printf("\t3. Remove an order\n\n");
+ printf("\t4. show your order\n\n");
+ printf("\t5. bill\n\n");
+ printf("\t6. Exit\n\n\n");
+ printf("\tEnter your choice: ");
 
     int k;
-    printf("What would you like? ");
+
     scanf("%d",&k);
-    if(k==1){
-    menu();}
-    return (0);
+
+    switch(k)
+   {
+    case 1:
+      c='Y';
+     while(c=='Y')
+    {
+    int j =  menu();
+    switch(j)
+    {
+     case 1: fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Hot and Sour Soup");
+             o1.price=150;
+       fwrite(&o1,size2,1,fp);
+  break;
+     
+  case 4:
+
+    system("cls");
+    rewind(fp);
+    c='Y';
+
+    while(fread(&o1,size2,1,fp)==1){
+    printf("\n %s   %f\n\n\n",o1.ord,o1.price);
+    	}
+    getch();
+    break;
+
+    }
+
+
+
 }
+
+
+ }
