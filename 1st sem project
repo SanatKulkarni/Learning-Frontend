@@ -45,6 +45,7 @@ int maincourse(){
     printf("4. Veg Biryani           -- 220Rs.\n");
     printf("5. Paneer Schezwan Rice  -- 150Rs.\n");
     printf("6. Paneer Tikka Masala   -- 180Rs.\n");
+    printf("Enter Your Choice: ");
     scanf("%d",&i);
     return i;
 }
@@ -56,6 +57,7 @@ int dessert(){
     printf("3. Chocolate Brownie  -- 100Rs.\n");
     printf("4. Rasgulla           -- 120Rs.\n");
     printf("5. Karanji            -- 150Rs.\n");
+    printf("Enter Your Choice: ");
     scanf("%d",&i);
     return i;
 }
@@ -64,6 +66,7 @@ int dessert(){
 void main(){
 system("cls");
 char c;
+char delorder[50];
     fp=fopen("ORDER.DAT","rb+");
     if(fp == NULL)
     {
@@ -222,7 +225,32 @@ int i,j;
      break;
 
 
+    case 2:
 
+        system("cls");
+        c='y';
+        while(c=='y')
+            {
+                printf("\nEnter order to delete: ");
+                gets(delorder);
+                ft = fopen("Temp.dat","wb");  
+                rewind(fp); 
+                while(fread(&o1,size2,1,fp) == 1) 
+                {
+                    if(strcmp(o1.ord,delorder) != 0)  
+                    {
+                        fwrite(&o1,size2,1,ft);
+                    }
+                }
+                fclose(fp);
+                fclose(ft);
+                remove("ORDER.dat"); 
+                rename("Temp.dat","ORDER.dat"); 
+                fp = fopen("ORDER.dat", "rb+");
+                printf("Delete another record(y/n)");
+                c = getche();
+            }
+            break;
 
 
 
