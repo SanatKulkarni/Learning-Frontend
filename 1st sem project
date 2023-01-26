@@ -10,10 +10,11 @@ float bill;
 int rating;
 
 }b1;
+
+
 struct order{
 char ord[50];
 float price;
-int quantity;
 }o1;
 
 int size1=sizeof(b1);
@@ -96,9 +97,10 @@ printf("\n\n\n\n\n\n\n\n\n");
 
  printf("\t1. Order Something\n\n");
  printf("\t2. Remove an order\n\n");
- printf("\t3. show your order\n\n");
- printf("\t4. bill\n\n");
- printf("\t5. Exit\n\n\n");
+ printf("\t3. Show your order\n\n");
+ printf("\t4. New Order\n\n");
+ printf("\t5. Bill\n\n");
+ printf("\t6. Exit\n\n\n");
  printf("\tEnter your choice: ");
 int i,j;
 
@@ -225,27 +227,37 @@ int i,j;
 
 
 
-  case 4:
+  case 3:
 
     system("cls");
     rewind(fp);
-    c='Y';
-
+c='Y';
     while(fread(&o1,size2,1,fp)==1){
     printf("\n %s   %f\n\n\n",o1.ord,o1.price);
     	}
-    getch();
+getch();
     break;
 
-  case 5:
+
+
+  case 4:
+    fp=fopen("ORDER.dat","w");
+    fclose(fp);
+    fp=fopen("ORDER.dat","rb+");
+    break;
+
+
+  case 6:
     exit(0);
     break;
     }
 
+  default:
+    printf("Sorry Invalid choice");
+    break;
 
 
 }
 
 
 } }
-
