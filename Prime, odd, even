@@ -5,7 +5,7 @@ HTML stuff:
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
     
 </head>
@@ -75,49 +75,53 @@ else if(count!=2){
 
 CSS Content: 
 @keyframes fade-in {
-    0%{ opacity: 0;}
-    100%{ opacity: 1;}
+  0%{ opacity: 0;}
+  100%{ opacity: 1;}
 }
 
 
-
+#webti{
+  color: white;
+  text-align: center;
+  font-family: "Press Start 2P","consolas",sans-serif;
+}
 body{
-    background-color: black;
+  background-color: black;
 }
 #title{
-    color: white;
-    text-align: center;
-    font-family: "Press Start 2P","consolas",sans-serif;
+  color: white;
+  text-align: center;
+  font-family: "Press Start 2P","consolas",sans-serif;
 }
 #num{
-    height: 50px;
-    width: 500px;
-    text-align: center;
-    font-size: larger;
-    margin: auto;
-    display: block;
-    border-radius: 25px;
+  height: 50px;
+  width: 500px;
+  text-align: center;
+  font-size: larger;
+  margin: auto;
+  display: block;
+  border-radius: 25px;
 }
 #res{
-    color: white;
-    text-align: center;
-    animation: fade-in 2s;
-    font-family: "Press Start 2P","consolas",sans-serif;
+  color: white;
+  text-align: center;
+  animation: fade-in 2s;
+  font-family: "Press Start 2P","consolas",sans-serif;
 }
 #prime{
-    color: white;
-    text-align: center;
-    animation: fade-in 2s;
-    font-family: "Press Start 2P","consolas",sans-serif;
+  color: white;
+  text-align: center;
+  animation: fade-in 2s;
+  font-family: "Press Start 2P","consolas",sans-serif;
 }
 
 #submit{
-    height: 50px;
-    width: 500px;
-    margin: auto;
-    display: block;
-    border-radius: 25px;
-    animation: fade-in;
-    font-family: "Press Start 2P","consolas",sans-serif;
+  height: 50px;
+  width: 500px;
+  margin: auto;
+  display: block;
+  border-radius: 25px;
+  animation: fade-in;
+  font-family: "Press Start 2P","consolas",sans-serif;
 
 }
