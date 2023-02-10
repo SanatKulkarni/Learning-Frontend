@@ -1,15 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <windows.h>
 #include <conio.h>
+#include <math.h>
+static int tot=0;
 
-struct billing{
-char name[50];
-float bill;
-int rating;
-
-}b1;
 
 
 struct order{
@@ -17,7 +12,7 @@ char ord[50];
 float price;
 }o1;
 
-int size1=sizeof(b1);
+
 int size2=sizeof(o1);
 FILE *fp,*ft;
 
@@ -63,10 +58,90 @@ int dessert(){
 }
 
 
+void budgetsystem(int k){
+    switch(k){
+case 1:
+
+    fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Tomato Soup");
+             o1.price=150;
+
+    fwrite(&o1,size2,1,fp);
+             fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Paneer Schezwan Rice");
+             o1.price=150;
+    fwrite(&o1,size2,1,fp);
+             tot=300;
+             break;
+
+case 2:
+    fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Hot and Sour Soup");
+             o1.price=150;
+    fwrite(&o1,size2,1,fp);
+             fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Chicken Schezwan Rice");
+             o1.price=160;
+    fwrite(&o1,size2,1,fp);
+    fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Gulab Jamun");
+             o1.price=120;
+    fwrite(&o1,size2,1,fp);
+             tot=500;
+             break;
+
+case 3:
+    fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Chicken Soup");
+             o1.price=200;
+    fwrite(&o1,size2,1,fp);
+    fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Chicken Biryani");
+             o1.price=300;
+    fwrite(&o1,size2,1,fp);
+    fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Chocolate Brownie");
+             o1.price=100;
+    fwrite(&o1,size2,1,fp);
+    tot=600;
+    break;
+
+
+case 4:
+    fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Paneer 65");
+             o1.price=250;
+    fwrite(&o1,size2,1,fp);
+    fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Chicken Spring Rolls");
+             o1.price=280;
+    fwrite(&o1,size2,1,fp);
+    fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Chicken Biryani");
+             o1.price=300;
+    fwrite(&o1,size2,1,fp);
+    fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Rasgulla");
+             o1.price=120;
+    fwrite(&o1,size2,1,fp);
+    fseek(fp,0,SEEK_END);
+             strcpy(o1.ord,"Ice-cream");
+             o1.price=80;
+    fwrite(&o1,size2,1,fp);
+        tot=1000;
+    break;
+
+default:
+    printf("Invalid Option");
+    }
+}
+
 void main(){
+
 system("cls");
 char c;
-char delorder[50];
+char delorder[50],name[20];
+int mnum,budorder;
     fp=fopen("ORDER.DAT","rb+");
     if(fp == NULL)
     {
@@ -99,11 +174,12 @@ printf("\n\n\n\n\n\n\n\n\n");
 
 
  printf("\t1. Order Something\n\n");
- printf("\t2. Remove an order\n\n");
- printf("\t3. Show your order\n\n");
- printf("\t4. New Order\n\n");
- printf("\t5. Bill\n\n");
- printf("\t6. Exit\n\n\n");
+ printf("\t2. Show Budget Options\n\n");
+ printf("\t3. Remove an order\n\n");
+ printf("\t4. Show your order\n\n");
+ printf("\t5. New Order\n\n");
+ printf("\t6. Bill\n\n");
+ printf("\t7. Exit\n\n\n");
  printf("\tEnter your choice: ");
 int i,j;
 
@@ -134,27 +210,32 @@ int i,j;
     fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Hot and Sour Soup");
              o1.price=150;
+            tot+=150;
        fwrite(&o1,size2,1,fp);
     }
      if(j==2){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Tomato Soup");
              o1.price=150;
+tot+=150;
        fwrite(&o1,size2,1,fp);
      }
      if(j==3){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Chicken Soup");
              o1.price=200;
+tot+=200;
        fwrite(&o1,size2,1,fp);
     }
      if(j==4){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Manchurian dry");
              o1.price=220;
+             tot+=220;
        fwrite(&o1,size2,1,fp);
      }
      if(j==5){
             fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Paneer 65");
              o1.price=250;
+             tot+=250;
        fwrite(&o1,size2,1,fp);
      }
 
@@ -162,11 +243,13 @@ int i,j;
             fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Chicken Kebab");
              o1.price=250;
+             tot+=250;
        fwrite(&o1,size2,1,fp);
      }
      if(j==7){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Chicken Spring Rolls");
              o1.price=280;
+             tot+=280;
        fwrite(&o1,size2,1,fp);
      }
     }
@@ -176,26 +259,32 @@ int i,j;
     if(j==1){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Chicken Biryani");
              o1.price=300;
+tot+=300;
        fwrite(&o1,size2,1,fp);}
     if(j==2){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Chicken Schezwan Rice");
              o1.price=160;
+             tot+=160;
        fwrite(&o1,size2,1,fp);}
     if(j==3){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Butter Chicken");
              o1.price=250;
+             tot+=250;
        fwrite(&o1,size2,1,fp);}
     if(j==4){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Veg Biryani");
              o1.price=220;
+             tot+=220;
        fwrite(&o1,size2,1,fp);}
     if(j==5){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Paneer Schezwan Rice");
              o1.price=150;
+             tot+=150;
        fwrite(&o1,size2,1,fp);}
     if(j==6){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Paneer Tikka Masala");
              o1.price=180;
+             tot+=180;
        fwrite(&o1,size2,1,fp);}
     }
 
@@ -204,28 +293,46 @@ int i,j;
     if(j==1){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Ice-Cream");
              o1.price=80;
+             tot+=80;
        fwrite(&o1,size2,1,fp);}
     if(j==2){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Gulab Jamun");
              o1.price=120;
+             tot+=120;
        fwrite(&o1,size2,1,fp);}
     if(j==3){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Chocolate Brownie");
              o1.price=100;
+             tot+=100;
        fwrite(&o1,size2,1,fp);}
     if(j==4){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Rasgulla");
              o1.price=120;
+             tot+=120;
        fwrite(&o1,size2,1,fp);}
     if(j==5){ fseek(fp,0,SEEK_END);
              strcpy(o1.ord,"Karanji");
              o1.price=150;
+             tot+=150;
        fwrite(&o1,size2,1,fp);}
     }
      break;
 
 
     case 2:
+        system("cls");
+        printf("1. Tomato Soup\n   Paneer Schezwan Rice------Total: 300\n\n");
+        printf("2. Hot and Sour Soup\n   Chicken Schezwan Rice\n   Gulab Jamun------Total: 500\n\n");
+        printf("3. Chicken Soup\n   Chicken Biryani\n   Chocolate Brownie------Total: 600\n\n");
+        printf("4. Family Meal:\n   Paneer 65\n   Chicken Spring Rolls\n   Chicken Biryani\n   Rasgulla\n   Ice-cream------Total: 1000\n\n");
+        printf("Please select order according to your budget: ");
+        scanf("%d",&budorder);
+        budgetsystem(budorder);
+
+
+        break;
+
+case 3:
 
         system("cls");
         c='y';
@@ -233,21 +340,23 @@ int i,j;
             {
                 printf("\nEnter order to delete: ");
                 gets(delorder);
-                ft = fopen("Temp.dat","wb");  
-                rewind(fp); 
-                while(fread(&o1,size2,1,fp) == 1) 
+                ft = fopen("Temp.DAT","wb");
+                rewind(fp);
+                while(fread(&o1,size2,1,fp) == 1)
                 {
-                    if(strcmp(o1.ord,delorder) != 0)  
+                    if(strcmp(o1.ord,delorder) != 0)
                     {
+                        tot-=o1.price;
                         fwrite(&o1,size2,1,ft);
                     }
                 }
                 fclose(fp);
                 fclose(ft);
-                remove("ORDER.dat"); 
-                rename("Temp.dat","ORDER.dat"); 
-                fp = fopen("ORDER.dat", "rb+");
+                remove("ORDER.DAT");
+                rename("Temp.DAT","ORDER.DAT");
+                fp = fopen("ORDER.DAT", "rb+");
                 printf("Delete another record(y/n)");
+
                 c = getche();
             }
             break;
@@ -255,27 +364,45 @@ int i,j;
 
 
 
-  case 3:
+  case 4:
 
     system("cls");
     rewind(fp);
 c='Y';
     while(fread(&o1,size2,1,fp)==1){
-    printf("\n %s   %f\n\n\n",o1.ord,o1.price);
+    printf("\n %s   %f\n\n",o1.ord,o1.price);
     	}
 getch();
     break;
 
 
 
-  case 4:
-    fp=fopen("ORDER.dat","w");
+  case 5:
+      system("cls");
+
+      tot=0;
+    fp=fopen("ORDER.dat","wb+");
     fclose(fp);
     fp=fopen("ORDER.dat","rb+");
     break;
 
 
-  case 6:
+
+    case 6:
+        system("cls");
+        printf("Enter Your Name: ");
+        scanf("%s",name);
+        printf("Enter Your Mobile Number: ");
+        scanf("%d",&mnum);
+        printf("\nContact No.: %d",mnum);
+        printf("\n\nYour total Bill is: %dRs.\n\n",abs(tot));
+        printf("Thank You for Visiting %s!\n\n",name);
+         system("pause");
+ break;
+
+
+
+  case 7:
     exit(0);
     break;
     }
